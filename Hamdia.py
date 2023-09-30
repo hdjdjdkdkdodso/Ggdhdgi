@@ -13,7 +13,7 @@ welcome_messages = [
 ]
 
 # Replace 'YOUR_BOT_TOKEN' with your actual bot token
-bot = telebot.TeleBot("5975626400:AAFSMl4fbQ_M-0zC9ve5crKkZvQuuurfQD4")
+bot = telebot.TeleBot("5975626400:AAF1Xoh_rIbfxZk4ZeQGWuXJEIonFjArWvE")
 
 def clear_console():
     os.system('clear')
