@@ -1,4 +1,3 @@
-import requests
 import telebot
 import random
 import time
@@ -15,37 +14,6 @@ welcome_messages = [
 
 # Replace 'YOUR_BOT_TOKEN' with your actual bot token
 bot = telebot.TeleBot("5975626400:AAFSMl4fbQ_M-0zC9ve5crKkZvQuuurfQD4")
-
-
-
-
-
-
-def check_internet_connection():
-    try:
-        requests.get("https://www.google.com", timeout=5)
-        return True
-    except requests.ConnectionError:
-        return False
-
-
-def main():
-    while True:
-        # التحقق من وجود اتصال بالإنترنت
-        if check_internet_connection():
-            pass
-        else:
-            # إيقاف التنفيذ لفترة مؤقتة
-            print("انقطع الاتصال بالإنترنت. سيتم الانتظار...")
-            time.sleep(60)  # انتظار لمدة دقيقة قبل إعادة التحقق
-
-
-
-
-
-
-
-
 
 def clear_console():
     os.system('clear')
@@ -97,16 +65,17 @@ def respond_to_messages(message):
         "اه": "ۆجٍعآ😂",
         "شخبارك": "بْخـيَر آڏآ آنْتٌة بْخـيَر 👀",
         "شبيج": "آنْتٌة شُبْيَگ 😕",
-        "مدري": "شتدرون بعد 😑ٌ",
-        "بعد روحي":"حٍـيَآتٌيَ آنْتٌة😍🥰"
+        "مدري": "شتدرون بعد 😑",
+        "بعد روحي":"حٍـيَآتٌيَ آنْتٌة😍🥰",
+        "حمدية":"وٌمہرضہ 🙄"
     }
 
     # البحث عن الرسالة في القائمة وإرسال الرد المناسب
     response = messages_and_responses.get(text, None)
     if response:
-        #bot.reply_to(message, response)
+        bot.reply_to(message, response)
         print("message_random")
-        bot.send_message(message.chat.id, response)
+       # bot.send_message(message.chat.id, response)
 
 
 @bot.message_handler(commands=['start'])
@@ -119,6 +88,5 @@ def start_animation(message):
 def stop_animation(message):
     global chat_id
     chat_id = None
-if __name__ == "__main__":
-    main()
+
 bot.polling()
